@@ -1,0 +1,181 @@
+
+/* CSS Document */
+a:link {
+    color:maroon;
+    text-decoration:underline;
+}
+
+a:visited {
+    color:maroon;
+}
+
+a:hover {
+    text-decoration:none;
+}
+
+body {
+    font:x-small Tahoma, Verdana, Helvetica, Arial, sans-serif;
+    background:#FFF; 
+    color:#000000;
+    margin:0;
+    padding:0;
+}
+
+#container {
+    margin:0 auto;
+    width: 640px; 
+    padding:0 5px;
+    border-bottom:5px solid #FFF;
+    position:relative;
+    font-size:110%;
+}
+
+#pageHeader {
+    width:640px;
+    height:255px;
+    background:#FFF url(../img/Orch_page_header.jpg) no-repeat top left;
+}
+
+#pageHeader h1, #pageHeader h2 {
+    display:none;
+}
+
+#preamble {
+    /*margin-right:235px;*/
+    padding:5px;
+    background:#F6CB6C; /*color - yellow*/
+}
+
+#preamble h3 {
+    margin:0 0 5px;
+    padding:0;
+    width:238px;
+    height:24px;
+    overflow:hidden;
+}
+
+#preamble p {
+    margin:0 10px 10px;
+    padding:0;
+}
+
+#preamble p.p3 {
+    margin:0 10px 5px;
+}
+
+#coffeePicture {
+    display: block;
+    margin: 1em;
+}
+
+#supportingText {
+    margin-right:235px;
+    padding:5px;
+}
+
+#linkList {
+    position:absolute;
+    top:180px;
+    left:415px;
+    width:230px;
+}
+
+#footer {
+    margin:0px 0px -5px -5px;
+    border-top:5px solid #FFF;
+    background-color:#FFCF75;
+    padding:10px;
+}
+
+#footer a {
+    color:maroon;
+}
+#footer {
+    color:maroon;
+}
+
+#footer a:hover {
+    color:blue;
+    text-decoration:none;
+}
+
+#footerlinks {
+    float: right;
+}
+
+#explanation h3, #participation h3, #benefits h3, #requirements h3 {
+    margin:10px 0 5px;
+    padding:0;
+    width:238px;
+    height:24px;
+    color:#F6CB6C; /*color - yellow*/            
+    background-color: black;
+}
+
+#preamble h3 span,
+#explanation h3 span,
+#participation h3 span,
+#benefits h3 span,
+#requirements h3 span {
+    float: left;
+    text-indent: .75em;
+}
+
+#lselect li a, #lfavorites li a {display: block; margin-left:-10px; font-weight:bold;}
+#linkList li a.c, #lfavorites li a.c {float:none; display:inline; margin-left:0; font-weight:normal; font-size:100%;}
+
+#supportingText p {
+    margin:0 10px 10px;
+    padding:0;
+}
+
+#linkList ul {
+    width:210px;
+    margin:0 0 10px 15px;
+    padding:0;
+}
+
+#linkList li {
+    padding: 0 0 0 30px;
+    margin:0 0 5px;
+    list-style-type:none;
+    white-space:nowrap;
+    background: transparent url(../img/coffee_bean_icon17x25.png) no-repeat 0 1px;
+}
+
+#lselect ul, #lfavorites ul {
+    width:210px;
+    margin:0 0 10px 15px;
+    padding:0;
+}
+
+#lselect li, #lfavorites li {
+    padding: 0 0 0 40px;
+    margin:0 0 5px;
+    list-style-type:none;
+    clear:left;
+    white-space:nowrap;
+}
+
+#linkList h3 {
+    margin:0 0 10px;
+    background:#6E6855 repeat-y top left;
+    padding:5px 5px 5px 15px;
+    font-weight:bold;
+    color:#E9E6D9;
+    font-size:120%;
+}
+
+acronym {
+    border-bottom:1px dotted #555040;
+    cursor:help;
+}
+
+a acronym {
+    border-bottom:1px dotted #8297A7;
+}
+
+#lfavorites, #larchives, #lresources {
+    border-top:5px solid #FFF;
+}
+
