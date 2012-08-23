@@ -1,0 +1,3 @@
+FTP host: klocworx.netfirms.com
+user: Guinness
+pswd: N0shery!
