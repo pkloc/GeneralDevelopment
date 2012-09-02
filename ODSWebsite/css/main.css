@@ -1,8 +1,12 @@
 
 /* CSS Document */
-a:link {
+div{
+	/*border:1px solid;*/
+}
+
+a{
     color:maroon;
-    text-decoration:underline;
+    text-decoration:none;
 }
 
 a:visited {
@@ -10,7 +14,13 @@ a:visited {
 }
 
 a:hover {
-    text-decoration:none;
+    color:#FFCF75;
+    background:maroon;
+}
+
+#menuPlaceholder a {
+	font-size:20px;
+	padding:0px 5px;
 }
 
 body {
@@ -18,12 +28,12 @@ body {
     background:#FFF; 
     color:#000000;
     margin:0;
-    padding:0;
+    padding:5px;
 }
 
 #container {
     margin:0 auto;
-    width: 640px; 
+    width: 884px; 
     padding:0 5px;
     border-bottom:5px solid #FFF;
     position:relative;
@@ -31,17 +41,54 @@ body {
 }
 
 #pageHeader {
-    width:640px;
-    height:255px;
-    background:#FFF url(../img/Orch_page_header.jpg) no-repeat top left;
+  width:884px;
+  height:316px;
 }
 
-#pageHeader h1, #pageHeader h2 {
-    display:none;
+#picsPlaceholder{
+	position:absolute;
+	left:5px;
+	top:0px;
+	width:735px;
+  height:284px;
+  background:black;
+}
+
+#picsPlaceholder img{
+	position:absolute;
+	display:none;
+}
+
+#logoPlaceholder{
+	position:absolute;
+	left:740px;
+	top:0px;
+	width:149px;
+  height:284px;
+}
+
+#menuPlaceholder{
+	position:absolute;
+	left:5px;
+	top:285px;
+	width:884px;
+  height:30px;
+  background-color:#FFCF75;
+}
+
+ul
+{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+} 
+
+li
+{
+display:inline;
 }
 
 #preamble {
-    /*margin-right:235px;*/
     padding:5px;
     background:#F6CB6C; /*color - yellow*/
 }
@@ -59,36 +106,25 @@ body {
     padding:0;
 }
 
-#preamble p.p3 {
-    margin:0 10px 5px;
-}
-
 #coffeePicture {
     display: block;
     margin: 1em;
 }
 
 #supportingText {
-    margin-right:235px;
     padding:5px;
 }
 
-#linkList {
-    position:absolute;
-    top:180px;
-    left:415px;
-    width:230px;
-}
-
 #footer {
-    margin:0px 0px -5px -5px;
-    border-top:5px solid #FFF;
-    background-color:#FFCF75;
-    padding:10px;
+	height:18px;
+	border-top:5px solid #FFF;
+  background-color:#FFCF75;
+  padding:10px;
 }
 
 #footer a {
     color:maroon;
+    padding:5px;
 }
 #footer {
     color:maroon;
@@ -103,7 +139,12 @@ body {
     float: right;
 }
 
-#explanation h3, #participation h3, #benefits h3, #requirements h3 {
+#webSiteBy {
+	color:#666666;
+	text-align: right;
+}
+
+#explanation h3, #participation h3 {
     margin:10px 0 5px;
     padding:0;
     width:238px;
@@ -114,56 +155,30 @@ body {
 
 #preamble h3 span,
 #explanation h3 span,
-#participation h3 span,
-#benefits h3 span,
-#requirements h3 span {
+#participation h3 span{
     float: left;
     text-indent: .75em;
 }
 
-#lselect li a, #lfavorites li a {display: block; margin-left:-10px; font-weight:bold;}
-#linkList li a.c, #lfavorites li a.c {float:none; display:inline; margin-left:0; font-weight:normal; font-size:100%;}
+#lselect li a {display: block; margin-left:-10px; font-weight:bold;}
 
 #supportingText p {
     margin:0 10px 10px;
     padding:0;
 }
 
-#linkList ul {
+#lselect ul{
     width:210px;
     margin:0 0 10px 15px;
     padding:0;
 }
 
-#linkList li {
-    padding: 0 0 0 30px;
-    margin:0 0 5px;
-    list-style-type:none;
-    white-space:nowrap;
-    background: transparent url(../img/coffee_bean_icon17x25.png) no-repeat 0 1px;
-}
-
-#lselect ul, #lfavorites ul {
-    width:210px;
-    margin:0 0 10px 15px;
-    padding:0;
-}
-
-#lselect li, #lfavorites li {
+#lselect li{
     padding: 0 0 0 40px;
     margin:0 0 5px;
     list-style-type:none;
     clear:left;
     white-space:nowrap;
-}
-
-#linkList h3 {
-    margin:0 0 10px;
-    background:#6E6855 repeat-y top left;
-    padding:5px 5px 5px 15px;
-    font-weight:bold;
-    color:#E9E6D9;
-    font-size:120%;
 }
 
 acronym {
@@ -174,8 +189,3 @@ acronym {
 a acronym {
     border-bottom:1px dotted #8297A7;
 }
-
-#lfavorites, #larchives, #lresources {
-    border-top:5px solid #FFF;
-}
-
