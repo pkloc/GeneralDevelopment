@@ -16,6 +16,16 @@
 								
 								$("#dynamicContent").load("home.html");
 								
+								$("#picsPlaceholder img").hide();
+								
+								function test(){
+									$("#picsPlaceholder img").first().appendTo('#picsPlaceholder').fadeOut(4000);
+									$("#picsPlaceholder img").first().fadeIn(4000);
+									
+									setTimeout(test, 15000);
+								}
+								test();
+								
 							  $("#homePage").click(function() {
 							  	$("#dynamicContent").load("home.html");
 									return false;
@@ -37,22 +47,41 @@
 								});								
 							});
 						</script>
-
-            <style type="text/css" title="currentStyle" media="screen">
-                @import "./css/main.css";
-            </style>
+						
+						<link rel="stylesheet" type="text/css" href="./css/main.css" />
+						
             <link rel="Shortcut Icon" type="image/x-icon" href="http://www.csszengarden.com/favicon.ico" />	
-            <link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.csszengarden.com/zengarden.xml" />
+            
         </head>
 
         <body>
 
             <div id="container">
-                <div id="intro">
-                    <div id="pageHeader">
-                        <h1><span>Orchesis Dance Society</span></h1>
-                        <h2><span>Funding Orchesis Modern Dance Shows, Events and Activities.</span></h2>
-                    </div>
+                
+                <div id="pageHeader">
+                	
+                	<div id="picsPlaceholder">
+                		<img src="./photos/AnastasiaPiece.jpg" />
+                		<img src="./photos/bluedancers735x284.jpg" />
+                		<img src="./photos/browndancer735x284.jpg" />
+                		<img src="./photos/dancersinskirts735x284.jpg" />
+                		<img src="./photos/redandblackdancers735x284.jpg" />
+                	</div>
+                	
+                	<div id="logoPlaceholder">
+                		<img src="./img/OrchesisLogoVertical.jpg" />
+                	</div>
+                	
+                	<div id="menuPlaceholder">
+                		<ul>
+	                    <li><a href="#" id="homePage">About</a></li>
+	                    <li><a href="#" id="fundraising">Fundraising</a></li>
+	                    <li><a href="#" id="events">Events</a></li>
+	                    <li><a href="#" id="photos">Photo</a></li>					
+                      <li><a href="#" id="videos">Video</a></li>                                
+                    </ul>
+                	</div>          	
+                	        
                 </div>
 
                 <div id="supportingText">
@@ -60,48 +89,19 @@
 	                  </div>
 
                     <div id="footer">
-                        2012 Solstis Design
                         <span id="footerlinks">
-                            <a href="http://www.facebook.com/pages/Orchesis-Dance-Group-University-of-Alberta/126622107373351" title="Orchesis Dance Group - Facebook page">Facebook</a> &nbsp;
-                            <a href="http://twitter.com/#!/OrchesisUofA" title="Twitter">Twitter</a> &nbsp;
-                            <a href="http://www.youtube.com/watch?v=3kQbB4Z75-A" title="YouTube">YouTube</a>
+                            <a href="http://www.facebook.com/pages/Orchesis-Dance-Group-University-of-Alberta/126622107373351">Facebook</a> &nbsp;
+                            <a class="btnTwitter" href="https://twitter.com/#!/OrchesisUofA">Twitter</a> &nbsp;
+                            <a href="http://www.youtube.com/watch?v=3kQbB4Z75-A">YouTube</a>
                         </span>
                     </div>
+                    
+                    <div id="webSiteBy">
+                    	Website by KlocWorx Inc.
+                  	</div>
 
                 </div>
-
-
-                <div id="linkList">
-                    <div id="linkList2">
-
-                        <div id="lselect">
-                            <h3 class="select"><span>Orchesis Dance Society &raquo;</span></h3>
-                            <ul>
-                                <li><a href="#" id="homePage">Home</a></li>
-                                <li><a href="#" id="fundraising">Fundraising</a></li>
-                                <li><a href="#" id="events">Events</a></li>                                
-                            </ul>
-                        </div>
-                        
-                    </div>
-
-                    <div id="lresources">
-                        <h3 class="resources"><span>Media &raquo;</span></h3>
-                        <ul>
-                            <li><a href="#" id="photos">Photo</a></li>					
-                            <li><a href="#" id="videos">Video</a></li>
-                        </ul>
-
-                    </div>
-                    <img src="./img/sidebar_photo_home.png" id="feature_photo"/>
-                    <!-- Insert a photo in this div -->               
-                </div>
-
             </div>
 
-
-            <!-- These extra divs/spans may be used as catch-alls to add extra imagery. -->
-            <div id="extraDiv1"><span></span></div><div id="extraDiv2"><span></span></div><div id="extraDiv3"><span></span></div>
-            <div id="extraDiv4"><span></span></div><div id="extraDiv5"><span></span></div><div id="extraDiv6"><span></span></div>
-
+            
         </body>
