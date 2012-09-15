@@ -1,107 +1,107 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<!DOCTYPE html>
+<html lang="en-US" >
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE"> 
-        <head>
-            <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-            <meta name="keywords" content="dance, ODS, Orchesis, edmonton, modern, jazz, coffee, fundraising, Dance Motif" />
-            <meta name="description" content="Orchesis Dance Society - The fundraising arm of Orchesis Dance" />
-            <meta name="robots" content="all" />
-            <title>Orchesis Dance Society</title>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="dance, ODS, Orchesis, edmonton, modern, jazz, coffee, fundraising, Dance Motif" />
+		<meta name="description" content="Orchesis Dance Society - The fundraising arm of Orchesis Dance" />
+		<meta name="robots" content="all" />
+		<title>Orchesis Dance Society</title>
 
-            <script src="./jquery/jquery-1.8.0.min.js"></script>
-  
-  					<script>
-							$(document).ready(function() {
-								
-								$("#dynamicContent").load("home.html");
-								
-								$("#picsPlaceholder img").hide();
-								
-								function test(){
-									$("#picsPlaceholder img").first().appendTo('#picsPlaceholder').fadeOut(4000);
-									$("#picsPlaceholder img").first().fadeIn(4000);
-									
-									setTimeout(test, 15000);
-								}
-								test();
-								
-							  $("#homePage").click(function() {
-							  	$("#dynamicContent").load("home.html");
-									return false;
-								});
-								
-								$("#events").click(function() {
-							  	$("#dynamicContent").load("events.html");
-									return false;
-								});
-								
-								$("#videos").click(function() {
-							  	$("#dynamicContent").load("video.html");
-									return false;
-								});
-								
-								$("#fundraising").click(function() {
-							  	$("#dynamicContent").load("fundraising.html");
-									return false;
-								});								
-							});
-						</script>
-						
-						<link rel="stylesheet" type="text/css" href="./css/main.css" />
-						
-            <link rel="Shortcut Icon" type="image/x-icon" href="http://www.csszengarden.com/favicon.ico" />	
-            
-        </head>
+		<link rel="stylesheet" type="text/css" href="./css/main.css" />
+					
+		<link rel="Shortcut Icon" type="image/x-icon" href="http://www.csszengarden.com/favicon.ico" />
+		
+		<script src="./jquery/jquery-1.8.0.min.js"></script>
+		<script src="./jquery/jquery.cycle.all.latest.js"></script>
+		
+		<script>
+			$(document).ready(function() {
+				
+				$("#main_content").load("home.html");
+				
+				$("#sidebar").load("upcoming_events.html");
+				
+				$("#homePage").click(function() {
+					$("#main_content").load("home.html");
+						return false;
+				});
+				
+				$("#events_archive").click(function() {
+					$("#main_content").load("events_archive.html");
+						return false;
+				});
+				
+				$("#media").click(function() {
+					$("#main_content").load("media.html");
+						return false;
+				});
+				
+				$("#fundraising").click(function() {
+					$("#main_content").load("fundraising.html");
+						return false;
+				});
+				
+				$("#slide_show").cycle({
+					fx:'fade',
+					speed: 2000,
+					timeout: 10000
+				});
+			});
+		</script>
+	</head>
 
-        <body>
-
-            <div id="container">
-                
-                <div id="pageHeader">
+    <body>
+    <div id="wrapper">
+		
+        <header id="page_header">
+			
+			<div id="logo">
+				<img src="./img/OrchesisBkgrd405x120.gif" width="405" height="120" />
+			</div>
+			
+			<div id="slide_show_area">
+			<div id="slide_show">
+				<img src="./photos/AnastasiaPiece.jpg" width="735" height="284" />
+				<img src="./photos/bluedancers735x284.jpg" width="735" height="284" />
+				<img src="./photos/browndancer735x284.jpg" width="735" height="284" />
+				<img src="./photos/dancersinskirts735x284.jpg" width="735" height="284" />
+				<img src="./photos/redandblackdancers735x284.jpg" width="735" height="284" />
+			</div>
+			</div>
                 	
-                	<div id="picsPlaceholder">
-                		<img src="./photos/AnastasiaPiece.jpg" />
-                		<img src="./photos/bluedancers735x284.jpg" />
-                		<img src="./photos/browndancer735x284.jpg" />
-                		<img src="./photos/dancersinskirts735x284.jpg" />
-                		<img src="./photos/redandblackdancers735x284.jpg" />
-                	</div>
-                	
-                	<div id="logoPlaceholder">
-                		<img src="./img/OrchesisLogoVertical.jpg" />
-                	</div>
-                	
-                	<div id="menuPlaceholder">
-                		<ul>
-	                    <li><a href="#" id="homePage">About</a></li>
-	                    <li><a href="#" id="fundraising">Fundraising</a></li>
-	                    <li><a href="#" id="events">Events</a></li>
-	                    <li><a href="#" id="photos">Photo</a></li>					
-                      <li><a href="#" id="videos">Video</a></li>                                
-                    </ul>
-                	</div>          	
-                	        
-                </div>
-
-                <div id="supportingText">
-                		<div id="dynamicContent">
-	                  </div>
-
-                    <div id="footer">
-                        <span id="footerlinks">
-                            <a href="http://www.facebook.com/pages/Orchesis-Dance-Group-University-of-Alberta/126622107373351">Facebook</a> &nbsp;
-                            <a class="btnTwitter" href="https://twitter.com/#!/OrchesisUofA">Twitter</a> &nbsp;
-                            <a href="http://www.youtube.com/watch?v=3kQbB4Z75-A">YouTube</a>
-                        </span>
-                    </div>
-                    
-                    <div id="webSiteBy">
-                    	Website by KlocWorx Inc.
-                  	</div>
-
-                </div>
-            </div>
-
-            
-        </body>
+			<nav>
+				<ul>
+					<li><a href="#" id="homePage">About</a></li>
+					<li><a href="#" id="fundraising">Fundraising</a></li>
+					<li><a href="#" id="events_archive">Events Archive</a></li>
+					<li><a href="#" id="media">Media</a></li>                                
+				</ul>
+			</nav>          	
+        </header>
+		
+		<section id="main_content">
+			
+		</section>
+		
+		<section id="sidebar">
+		
+		</section>
+		
+		<footer id="page_footer">
+			<nav>
+				<ul>
+					<li><a href="http://www.facebook.com/pages/Orchesis-Dance-Group-University-of-Alberta/126622107373351">
+						<img src="./img/facebook-icon.png" width="36"></a></li>
+					<li><a href="https://twitter.com/#!/OrchesisUofA">
+						<img src="./img/twitter-icon.png" width="36"></a></li>
+					<li><a href="http://www.youtube.com/watch?v=3kQbB4Z75-A">
+						<img src="./img/youtube_icon.png" width="36"></a></li>
+				</ul>
+			</nav>
+			<p>Website by KlocWorx Inc.</p>
+		</footer>
+	
+	</div>
+    </body>
+</html>
