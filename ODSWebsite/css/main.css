@@ -123,8 +123,13 @@ nav ul li a {
 	border-radius: 10px;
 }
 
+#sidebar header {
+	text-align: center;
+}
+
 #sidebar article {
 	padding: 0 5px;
+	border-top: thin solid #808080;
 }
  
 #page_footer {
