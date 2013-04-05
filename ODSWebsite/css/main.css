@@ -118,9 +118,11 @@ nav ul li a {
  
 #sidebar {
 	float: left;
-	width: 30%;
-	background-color: #d0d0d0;
+	width: 29%;
+	background-color: white;
+	border-style: solid;
 	border-radius: 10px;
+	border-color: purple;
 }
 
 #sidebar header {
@@ -130,6 +132,7 @@ nav ul li a {
 #sidebar article {
 	padding: 0 5px;
 	border-top: thin solid #808080;
+	text-align: center;
 }
  
 #page_footer {
