@@ -115,6 +115,10 @@ nav ul li a {
 #main_content article {
 	padding: 0 5px;
 }
+
+#main_content article header {
+	text-align: center;
+}
  
 #sidebar {
 	float: left;

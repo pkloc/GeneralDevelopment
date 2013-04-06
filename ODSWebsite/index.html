@@ -20,8 +20,6 @@
 				
 				$("#main_content").load("home.html");
 				
-				$("#sidebar").load("upcoming_events.html");
-				
 				$("#homePage").click(function() {
 					$("#main_content").load("home.html");
 						return false;
@@ -38,6 +36,11 @@
 				});
 				
 				$("#fundraising").click(function() {
+					$("#main_content").load("fundraising.html");
+						return false;
+				});
+				
+				$("#fundraising2").click(function() {
 					$("#main_content").load("fundraising.html");
 						return false;
 				});
@@ -85,7 +88,19 @@
 		</section>
 		
 		<section id="sidebar">
-		
+			<header>
+				<h2>Upcoming Events</h2>
+			</header>
+
+			<article>
+				<h3>Got Dance? - Dance workshop</h3>
+				<p>
+				Friday May 3 to Sunday May 5th, 2013
+				</p>
+				<h3>
+				<a href="#" id="fundraising2">Find out more and sign up!</a>
+				</h3>
+			</article>
 		</section>
 		
 		<footer id="page_footer">
