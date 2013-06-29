@@ -6,8 +6,8 @@ header, footer, section, aside, nav, article {
 body {
     width: 950px;
 	margin: 15px auto;
-	font-family: Arial, "MS Trebuchet", sans-serif;
-	font-size: 75%;
+	font-family: Verdana, sans-serif;
+	font-size: 85%;
 	background-color: #d0d0d0;
 }
 
@@ -36,7 +36,7 @@ p {
 }
 
 p, li {
-	line-height: 16px;
+	/*line-height: 16px;*/
 }
 
 #page_header{
