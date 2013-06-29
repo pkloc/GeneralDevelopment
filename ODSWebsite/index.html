@@ -22,6 +22,8 @@
 				
 				$("#main_content").load("home.html");
 				
+				$("#sidebar").load("upcoming_events.html");
+				
 				$("#homePage").click(function() {
 					$("#main_content").load("home.html");
 						return false;
@@ -31,6 +33,11 @@
 					$("#main_content").load("events_archive.html");
 						return false;
 				});
+				
+				$("#become_a_member").click(function() {
+					$("#main_content").load("become_a_member.html");
+						return false;
+				});				
 				
 				$("#media").click(function() {
 					$("#main_content").load("media.html");
@@ -42,8 +49,8 @@
 						return false;
 				});
 				
-				$("#fundraising2").click(function() {
-					$("#main_content").load("fundraising.html");
+				$("#donations").click(function() {
+					$("#main_content").load("donations.html");
 						return false;
 				});
 				
@@ -78,7 +85,9 @@
 			<nav>
 				<ul>
 					<li><a href="#" id="homePage">About</a></li>
+					<li><a href="#" id="become_a_member">Become A Member</a></li>
 					<li><a href="#" id="fundraising">Fundraising</a></li>
+					<li><a href="#" id="donations">Donations</a></li>
 					<li><a href="#" id="media">Media</a></li>
 					<li><a href="#" id="events_archive">Events Archive</a></li>
 				</ul>
@@ -90,19 +99,7 @@
 		</section>
 		
 		<section id="sidebar">
-			<header>
-				<h2>Upcoming Events</h2>
-			</header>
-
-			<article>
-				<h3>Got Dance? - Dance workshop</h3>
-				<p>
-				Friday May 3 to Sunday May 5th, 2013
-				</p>
-				<h3>
-				<a href="#" id="fundraising2">Find out more and sign up!</a>
-				</h3>
-			</article>
+			
 		</section>
 		
 		<footer id="page_footer">
