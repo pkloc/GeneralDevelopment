@@ -24,34 +24,34 @@
 				
 				$("#sidebar").load("upcoming_events.html");
 				
-				$("#homePage").click(function() {
+				$("#home_page").click(function() {
 					$("#main_content").load("home.html");
-						return false;
+					return false;
 				});
 				
 				$("#events_archive").click(function() {
 					$("#main_content").load("events_archive.html");
-						return false;
+					return false;
 				});
 				
 				$("#become_a_member").click(function() {
 					$("#main_content").load("become_a_member.html");
-						return false;
+					return false;
 				});				
 				
 				$("#media").click(function() {
 					$("#main_content").load("media.html");
-						return false;
+					return false;
 				});
 				
 				$("#fundraising").click(function() {
 					$("#main_content").load("fundraising.html");
-						return false;
+					return false;
 				});
 				
 				$("#donations").click(function() {
 					$("#main_content").load("donations.html");
-						return false;
+					return false;
 				});
 				
 				$("#slide_show").cycle({
@@ -69,22 +69,32 @@
         <header id="page_header">
 			
 			<div id="logo">
-				<img src="./img/OrchesisBkgrd405x120.gif" width="405" height="120" />
+				<img id="logoimage" src="./img/OrchesisBkgrd375x86.gif" width="375" height="86" />
+				<nav id="social_menu">
+					<ul>
+						<li><a href="http://www.facebook.com/pages/Orchesis-Dance-Group-University-of-Alberta/126622107373351" target="_blank">
+							<img src="./img/facebook.png" width="36" height="36"></a></li>
+						<li><a href="https://twitter.com/#!/OrchesisUofA" target="_blank">
+							<img src="./img/twitter.png" width="36" height="36"></a></li>
+						<li><a href="http://vimeo.com/orchesisdance/videos" target="_blank">
+							<img src="./img/vimeo.png" width="36" height="36"></a></li>
+					</ul>
+				</nav>
 			</div>
 			
 			<div id="slide_show_area">
-			<div id="slide_show">
-				<img src="./photos/AnastasiaPiece.jpg" width="735" height="284" />
-				<img src="./photos/bluedancers735x284.jpg" width="735" height="284" />
-				<img src="./photos/browndancer735x284.jpg" width="735" height="284" />
-				<img src="./photos/dancersinskirts735x284.jpg" width="735" height="284" />
-				<img src="./photos/redandblackdancers735x284.jpg" width="735" height="284" />
-			</div>
+				<div id="slide_show">
+					<img src="./photos/AnastasiaPiece.jpg" width="735" height="284" />
+					<img src="./photos/bluedancers735x284.jpg" width="735" height="284" />
+					<img src="./photos/browndancer735x284.jpg" width="735" height="284" />
+					<img src="./photos/dancersinskirts735x284.jpg" width="735" height="284" />
+					<img src="./photos/redandblackdancers735x284.jpg" width="735" height="284" />
+				</div>
 			</div>
                 	
 			<nav id="top_menu">
 				<ul>
-					<li><a href="#" id="homePage">About</a></li>
+					<li><a href="#" id="home_page">About</a></li>
 					<li><a href="#" id="become_a_member">Become A Member</a></li>
 					<li><a href="#" id="fundraising">Fundraising</a></li>
 					<li><a href="#" id="donations">Donations</a></li>
@@ -103,16 +113,6 @@
 		</section>
 		
 		<footer id="page_footer">
-			<nav id="bottom_menu">
-				<ul>
-					<li><a href="http://www.facebook.com/pages/Orchesis-Dance-Group-University-of-Alberta/126622107373351">
-						<img src="./img/facebook-icon.png" width="36"></a></li>
-					<li><a href="https://twitter.com/#!/OrchesisUofA">
-						<img src="./img/twitter-icon.png" width="36"></a></li>
-					<li><a href="http://www.youtube.com/watch?v=3kQbB4Z75-A">
-						<img src="./img/youtube_icon.png" width="36"></a></li>
-				</ul>
-			</nav>
 			<p>Website by KlocWorx Inc.</p>
 		</footer>
 	
