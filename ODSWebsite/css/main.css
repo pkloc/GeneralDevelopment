@@ -125,6 +125,28 @@ article {
 	border-top: 2px solid;
 }
 
+#boardMembers{
+	width:100%;
+}
+
+#boardMembers, #boardMembers th, #boardMembers td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#boardMembers th, #boardMembers td {
+    padding: 5px;
+    text-align: left;
+}
+
+.fundraiserItem  {
+	border-top: 1px solid black;
+}
+
+ul.bulletList  li{
+	margin: 8px 8px 8px 20px;
+}
+
 a {
 	color: #8B008B;
 	text-decoration: none;
