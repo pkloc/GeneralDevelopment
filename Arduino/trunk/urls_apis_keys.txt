@@ -1,0 +1,10 @@
+
+Nexmo:
+	API key: 8792bffe
+	API secret: 36308f43c8d15a20
+
+	For testing, type the following into Terminal:
+		curl "https://rest.nexmo.com/sms/json?api_key=8792bffe&api_secret=36308f43c8d15a20&from=13658000468&to=17809650773&text=Welcome+to+Nexmo"
+
+--------------------
+Other:
