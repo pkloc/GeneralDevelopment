@@ -11,7 +11,7 @@
       // onload callback
       function drawChart() {
 
-        var public_key = '6JZbNolApzF4om2l9yYK';
+        var public_key = '7JOaE6DMLwt0m6nAndKx';
 
         // JSONP request
         var jsonData = $.ajax({
@@ -24,21 +24,22 @@
           var data = new google.visualization.DataTable();
 
           data.addColumn('datetime', 'Time');
-          data.addColumn('number', 'Light');
-          data.addColumn('number', 'Switch');
+          data.addColumn('number', 'Original Weight');
+          data.addColumn('number', 'New Weight');
+		  
 
           $.each(results, function (i, row) {
             data.addRow([
               (new Date(row.timestamp)),
-              parseFloat(row.light),
-              parseFloat(row.switch)
+              parseFloat(row.old_weight),
+              parseFloat(row.new_weight)
             ]);
           });
 
           var chart = new google.visualization.LineChart($('#chart').get(0));
 
           chart.draw(data, {
-            title: 'Some light and switch data'
+            title: 'Weight data'
           });
 
         });
