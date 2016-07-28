@@ -1,0 +1,9 @@
+Weight sensor data in table format:
+
+https://data.sparkfun.com/streams/7JOaE6DMLwt0m6nAndKx
+
+
+Weight sensor data graphed:
+
+http://www.philipkloc.org/duinoPrototype/
+

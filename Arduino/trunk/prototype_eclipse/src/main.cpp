@@ -34,10 +34,10 @@ SFE_CC3000_Client client = SFE_CC3000_Client(wifi);
 /////////////////
 // Phant Stuff //
 /////////////////
-const String publicKey = "6JZbNolApzF4om2l9yYK";
-const String privateKey = "Ww0vPW1yrkUNDqWPV9jE";
+const String publicKey = "7JOaE6DMLwt0m6nAndKx";
+const String privateKey = "mzZ2N5dbJXiy5EkDkaAm";
 const byte NUM_FIELDS = 3;
-const String fieldNames[NUM_FIELDS] = {"light", "switch", "name"};
+const String fieldNames[NUM_FIELDS] = {"old_weight", "new_weight", "alarm_state"};
 String fieldData[NUM_FIELDS];
 //////////////////
 
@@ -168,13 +168,11 @@ void postData()
   Serial.println();
 }
 
-void postValuesToSparkfun(int oldValue, int newValue){
+void postValuesToSparkfun(float oldWeight, float newWeight, String alarmState){
 
-	String lightValue = String(oldValue);
-	String switchValue = String(newValue);
-	fieldData[0] = lightValue;
-	fieldData[1] = switchValue;
-	fieldData[2] = "XBee";
+	fieldData[0] = oldWeight;
+	fieldData[1] = newWeight;
+	fieldData[2] = alarmState;
 
 	postData();
 	delay(5000);
@@ -191,11 +189,9 @@ void loop()
 	    stringComplete = false;
 
 	    if(abs(weight - lastWeight) > WEIGHT_DIFF_THRESHOLD){
-	    	postValuesToSparkfun(lastWeight, weight);
+	    	postValuesToSparkfun(lastWeight, weight, "OK");
 
 	    	lastWeight = weight;
-
-	    	delay(5000);
 	    }
 	 }
 }
