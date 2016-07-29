@@ -25,8 +25,11 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.239157887" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\variants\standard"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\cores\arduino"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Bridge\src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Temboo\src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Temboo\src\utility"/>
+									<listOptionValue builtIn="false" value="E:\Dropbox\Arduino\prototype_eclipse\src"/>
+									<listOptionValue builtIn="false" value="E:\Dropbox\Arduino\prototype_eclipse\lib\SFE_CC3000_Library-master"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\EEPROM\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Esplora\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Ethernet\src"/>
@@ -47,7 +50,6 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\SpacebrewYun\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Stepper\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\TFT\src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Temboo\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\USBHost\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\WiFi\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Wire\src"/>
@@ -66,8 +68,11 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1096940598" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\variants\standard"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\cores\arduino"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Bridge\src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Temboo\src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Temboo\src\utility"/>
+									<listOptionValue builtIn="false" value="E:\Dropbox\Arduino\prototype_eclipse\src"/>
+									<listOptionValue builtIn="false" value="E:\Dropbox\Arduino\prototype_eclipse\lib\SFE_CC3000_Library-master"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\EEPROM\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Esplora\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Ethernet\src"/>
@@ -88,7 +93,6 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\SpacebrewYun\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Stepper\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\TFT\src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Temboo\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\USBHost\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\WiFi\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Wire\src"/>
@@ -107,8 +111,11 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.41298875" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\variants\standard"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\cores\arduino"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Bridge\src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Temboo\src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Temboo\src\utility"/>
+									<listOptionValue builtIn="false" value="E:\Dropbox\Arduino\prototype_eclipse\src"/>
+									<listOptionValue builtIn="false" value="E:\Dropbox\Arduino\prototype_eclipse\lib\SFE_CC3000_Library-master"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\EEPROM\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Esplora\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Ethernet\src"/>
@@ -129,7 +136,6 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\SpacebrewYun\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Stepper\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\TFT\src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Temboo\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\USBHost\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\WiFi\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Wire\src"/>

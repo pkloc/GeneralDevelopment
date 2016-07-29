@@ -5,7 +5,6 @@
 #include <SFE_CC3000.h>
 #include <SFE_CC3000_Client.h>
 
-
 ////////////////////////////////////
 // CC3000 Shield Pins & Variables //
 ////////////////////////////////////
@@ -36,9 +35,6 @@ SFE_CC3000_Client client = SFE_CC3000_Client(wifi);
 /////////////////
 const String publicKey = "7JOaE6DMLwt0m6nAndKx";
 const String privateKey = "mzZ2N5dbJXiy5EkDkaAm";
-const byte NUM_FIELDS = 3;
-const String fieldNames[NUM_FIELDS] = {"old_weight", "new_weight", "alarm_state"};
-String fieldData[NUM_FIELDS];
 //////////////////
 
 const float WEIGHT_DIFF_THRESHOLD = 5.0;
@@ -46,41 +42,40 @@ float lastWeight = 0.0;
 
 String inputString = "";         // a string to hold incoming data
 boolean stringComplete = false;  // whether the string is complete
+boolean firstRun = true;
+
+enum AlarmState {
+	IDLE, ARMED, ALARM
+};
+
+AlarmState alarmState = IDLE;
 
 void setupWiFi()
 {
   ConnectionInfo connection_info;
-  int i;
+  byte i;
 
   // Initialize CC3000 (configure SPI communications)
-  if ( wifi.init() )
-  {
-    Serial.println(F("CC3000 Ready!"));
-  }
-  else
-  {
-    // Error: 0 - Something went wrong during CC3000 init!
-    Serial.println(F("Error: 0"));
-  }
+  wifi.init();
 
   // Connect using DHCP
-  Serial.print(F("Connecting to: "));
-  Serial.println(ap_ssid);
+  //Serial.print(F("Connecting to: "));
+  //Serial.println(ap_ssid);
   if(!wifi.connect(ap_ssid, ap_security, ap_password, timeout))
   {
     // Error: 1 - Could not connect to AP
-    Serial.println(F("Error: 1"));
+    //Serial.println(F("Error: 1"));
   }
 
   // Gather connection details and print IP address
   if ( !wifi.getConnectionInfo(connection_info) )
   {
     // Error: 2 - Could not obtain connection details
-    Serial.println(F("Error: 2"));
+    //Serial.println(F("Error: 2"));
   }
   else
   {
-    Serial.print(F("My IP: "));
+    //Serial.print(F("My IP: "));
     for (i = 0; i < IP_ADDR_LEN; i++)
     {
       Serial.print(connection_info.ip_address[i]);
@@ -91,12 +86,12 @@ void setupWiFi()
     }
     Serial.println();
   }
-  Serial.println(F("Wifi setup complete."));
+  //Serial.println(F("Wifi setup complete."));
 }
 
 void setup()
 {
-	inputString.reserve(100);
+	inputString.reserve(75);
 
 	Serial.begin(9600);
 
@@ -125,14 +120,28 @@ void serialEvent() {
   }
 }
 
-void postData()
+void postData(float oldWeight, float newWeight, AlarmState alarmState)
 {
+	byte NUM_FIELDS = 3;
+	String fieldNames[] = {"old_weight", "new_weight", "alarm_state"};
+
+	String alarmText = "";
+	if( alarmState == IDLE ){
+		alarmText = "IDLE";
+	}else if( alarmState == ARMED ){
+		alarmText = "ARMED";
+	}else if( alarmState == ALARM ){
+		alarmText = "ALARM";
+	}
+
+	String fieldData[] = { String(oldWeight), String(newWeight), alarmText };
+
 
   // Make a TCP connection to remote host
   if ( !client.connect(server, 80) )
   {
     // Error: 4 - Could not make a TCP connection
-    Serial.println(F("Error: 4"));
+    //Serial.println(F("Error: 4"));
   }
 
   // Post the data! Request should look a little something like:
@@ -166,16 +175,8 @@ void postData()
     }
   }
   Serial.println();
-}
 
-void postValuesToSparkfun(float oldWeight, float newWeight, String alarmState){
-
-	fieldData[0] = oldWeight;
-	fieldData[1] = newWeight;
-	fieldData[2] = alarmState;
-
-	postData();
-	delay(5000);
+  delay(5000);
 }
 
 void loop()
@@ -189,41 +190,26 @@ void loop()
 	    stringComplete = false;
 
 	    if(abs(weight - lastWeight) > WEIGHT_DIFF_THRESHOLD){
-	    	postValuesToSparkfun(lastWeight, weight, "OK");
+
+	    	if(weight < lastWeight){
+	    		alarmState = ALARM;
+	    		postData(lastWeight, weight, alarmState);
+
+	    		//runCaptureTextToSpeechPrompt();	   // This would be a call to Temboo.
+
+	    	}else{
+	    		alarmState = ARMED;
+	    		postData(lastWeight, weight, alarmState);
+	    	}
 
 	    	lastWeight = weight;
+	    }
+
+	    if(firstRun){
+	    	alarmState = IDLE;
+	    	postData(lastWeight, weight, alarmState);
+	    	firstRun = false;
 	    }
 	 }
 }
 
-
-
-/**
- * Blink
- * Turns on an LED on for one second,
- * then off for one second, repeatedly.
- */
-//#include "Arduino.h"
-/*
-void setup()
-{
-  // initialize LED digital pin as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
-  Serial.begin(9600);
-  delay(50);
-}
-
-void loop()
-{
-  // turn the LED on (HIGH is the voltage level)
-  digitalWrite(LED_BUILTIN, HIGH);
-  // wait for a second
-  delay(1000);
-  // turn the LED off by making the voltage LOW
-  digitalWrite(LED_BUILTIN, LOW);
-   // wait for a second
-  delay(1000);
-
-  Serial.println("Flash Me!");
-}
-*/
