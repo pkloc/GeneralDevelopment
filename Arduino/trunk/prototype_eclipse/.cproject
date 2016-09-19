@@ -25,12 +25,15 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.239157887" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\cores\arduino"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\variants\mega"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\SPI\src"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\src"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\lib\WebClient"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\src"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\lib\WebClient"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\lib\WeightSensor"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\lib\SparkFun_CC3000_ID61"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Bridge\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\EEPROM\src"/>
@@ -73,12 +76,15 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1096940598" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\cores\arduino"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\variants\mega"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\SPI\src"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\src"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\lib\WebClient"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\src"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\lib\WebClient"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\lib\WeightSensor"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\lib\SparkFun_CC3000_ID61"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Bridge\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\EEPROM\src"/>
@@ -121,12 +127,15 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.41298875" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\cores\arduino"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\variants\mega"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\SPI\src"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\src"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
-									<listOptionValue builtIn="false" value="E:\projects\generalDevelopment\Arduino\trunk\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\lib\WebClient"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\src"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\lib\WebClient"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\lib\WeightSensor"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\Phant_ID488\src"/>
+									<listOptionValue builtIn="false" value="E:\Arduino\prototype_eclipse\.piolibdeps\SparkFun-CC3000_ID61"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\lib\SparkFun_CC3000_ID61"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\Bridge\src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}\.platformio\packages\framework-arduinoavr\libraries\EEPROM\src"/>
