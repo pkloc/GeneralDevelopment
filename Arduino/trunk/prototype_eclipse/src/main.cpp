@@ -1,92 +1,61 @@
 // SPI and the pair of SFE_CC3000 include statements are required
 // for using the CC300 shield as a client device.
 //#include "Arduino.h"
+#include <Arduino.h>
+#include <Phant.h>
 #include <SPI.h>
-#include <SFE_CC3000.h>
-#include <SFE_CC3000_Client.h>
-
-////////////////////////////////////
-// CC3000 Shield Pins & Variables //
-////////////////////////////////////
-// Don't change these unless you're using a breakout board.
-#define CC3000_INT      2   // Needs to be an interrupt pin (D2/D3)
-#define CC3000_EN       7   // Can be any digital pin
-#define CC3000_CS       10  // Preferred is pin 10 on Uno
-#define IP_ADDR_LEN     4   // Length of IP address in bytes
+#include <WebClient.h>
 
 ////////////////////
 // WiFi Constants //
 ////////////////////
 char ap_ssid[] = "attic";                // SSID of network
 char ap_password[] = "dupasalata";        // Password of network
-unsigned int ap_security = WLAN_SEC_WPA2; // Security of network
-// ap_security can be any of: WLAN_SEC_UNSEC, WLAN_SEC_WEP,
-//  WLAN_SEC_WPA, or WLAN_SEC_WPA2
+uint8_t ap_security = WLAN_SEC_WPA2; // Security of network
+uint16_t timeout = 30000;             // Milliseconds
 
-unsigned int timeout = 30000;             // Milliseconds
-char server[] = "data.sparkfun.com";      // Remote host site
+WebClient *webClient = NULL;
 
-// Initialize the CC3000 objects (shield and client):
-SFE_CC3000 wifi = SFE_CC3000(CC3000_INT, CC3000_EN, CC3000_CS);
-SFE_CC3000_Client client = SFE_CC3000_Client(wifi);
 
 /////////////////
 // Phant Stuff //
 /////////////////
-const String publicKey = "7JOaE6DMLwt0m6nAndKx";
-const String privateKey = "mzZ2N5dbJXiy5EkDkaAm";
+const char phantHost[] = "data.sparkfun.com";      // Remote host site
+const uint16_t hostPort = 80;
+const char publicKey[] = "7JOaE6DMLwt0m6nAndKx";
+const char privateKey[] = "mzZ2N5dbJXiy5EkDkaAm";
+
 //////////////////
 
 const float WEIGHT_DIFF_THRESHOLD = 5.0;
-float lastWeight = 0.0;
+float oldWeight = 0.0;
 
 String inputString = "";         // a string to hold incoming data
 boolean stringComplete = false;  // whether the string is complete
 boolean firstRun = true;
 
-enum AlarmState {
-	IDLE, ARMED, ALARM
-};
-
-AlarmState alarmState = IDLE;
 
 void setupWiFi()
 {
-  ConnectionInfo connection_info;
-  byte i;
+ 	webClient = new WebClient(phantHost, hostPort, publicKey, privateKey);
 
-  // Initialize CC3000 (configure SPI communications)
-  wifi.init();
+	Serial.print("Connecting to: ");
+	Serial.println(ap_ssid);
 
-  // Connect using DHCP
-  //Serial.print(F("Connecting to: "));
-  //Serial.println(ap_ssid);
-  if(!wifi.connect(ap_ssid, ap_security, ap_password, timeout))
-  {
-    // Error: 1 - Could not connect to AP
-    //Serial.println(F("Error: 1"));
-  }
-
-  // Gather connection details and print IP address
-  if ( !wifi.getConnectionInfo(connection_info) )
-  {
-    // Error: 2 - Could not obtain connection details
-    //Serial.println(F("Error: 2"));
-  }
-  else
-  {
-    //Serial.print(F("My IP: "));
-    for (i = 0; i < IP_ADDR_LEN; i++)
-    {
-      Serial.print(connection_info.ip_address[i]);
-      if ( i < IP_ADDR_LEN - 1 )
-      {
-        Serial.print(".");
-      }
-    }
-    Serial.println();
-  }
-  //Serial.println(F("Wifi setup complete."));
+	if(webClient->connectToWifi(ap_ssid, ap_security, ap_password, timeout)){
+		String *ipAddress = new String();
+		if(webClient->getIpAddress(*ipAddress)){
+			Serial.print("Got IP: ");
+			Serial.println(*ipAddress);
+		}
+		else{
+			Serial.println("Could not get IP address");
+		}
+	}
+	else{
+		Serial.print("Could not connect to: ");
+		Serial.println(ap_ssid);
+	}
 }
 
 void setup()
@@ -95,16 +64,21 @@ void setup()
 
 	Serial.begin(9600);
 
-	delay(5000);
+	delay(1000);
 
 	// Set Up WiFi:
 	setupWiFi();
+
+	Serial1.begin(9600);
+	//delay(1000);
+
 }
 
-void serialEvent() {
-  while (Serial.available()) {
+
+void getSerialData() {
+  while (Serial1.available()) {
     // get the new byte:
-    char inChar = (char)Serial.read();
+    char inChar = (char)Serial1.read();
     // add it to the inputString:
     inputString += inChar;
     // if the incoming character is a newline, set a flag
@@ -120,96 +94,43 @@ void serialEvent() {
   }
 }
 
-void postData(float oldWeight, float newWeight, AlarmState alarmState)
-{
-	byte NUM_FIELDS = 3;
-	String fieldNames[] = {"old_weight", "new_weight", "alarm_state"};
-
-	String alarmText = "";
-	if( alarmState == IDLE ){
-		alarmText = "IDLE";
-	}else if( alarmState == ARMED ){
-		alarmText = "ARMED";
-	}else if( alarmState == ALARM ){
-		alarmText = "ALARM";
-	}
-
-	String fieldData[] = { String(oldWeight), String(newWeight), alarmText };
-
-
-  // Make a TCP connection to remote host
-  if ( !client.connect(server, 80) )
-  {
-    // Error: 4 - Could not make a TCP connection
-    //Serial.println(F("Error: 4"));
-  }
-
-  // Post the data! Request should look a little something like:
-  // GET /input/publicKey?private_key=privateKey&light=1024&switch=0&time=5201 HTTP/1.1\n
-  // Host: data.sparkfun.com\n
-  // Connection: close\n
-  // \n
-  client.print("GET /input/");
-  client.print(publicKey);
-  client.print("?private_key=");
-  client.print(privateKey);
-  for (int i=0; i<NUM_FIELDS; i++)
-  {
-    client.print("&");
-    client.print(fieldNames[i]);
-    client.print("=");
-    client.print(fieldData[i]);
-  }
-  client.println(" HTTP/1.1");
-  client.print("Host: ");
-  client.println(server);
-  client.println("Connection: close");
-  client.println();
-
-  while (client.connected())
-  {
-    if ( client.available() )
-    {
-      char c = client.read();
-      Serial.print(c);
-    }
-  }
-  Serial.println();
-
-  delay(5000);
-}
-
 void loop()
 {
+	getSerialData();
+
 	if (stringComplete) {
 
 		Serial.println(inputString);
 
-		float weight = inputString.toFloat();
+		float newWeight = inputString.toFloat();
 	    inputString = "";
 	    stringComplete = false;
 
-	    if(abs(weight - lastWeight) > WEIGHT_DIFF_THRESHOLD){
-
-	    	if(weight < lastWeight){
-	    		alarmState = ALARM;
-	    		postData(lastWeight, weight, alarmState);
-
-	    		//runCaptureTextToSpeechPrompt();	   // This would be a call to Temboo.
-
-	    	}else{
-	    		alarmState = ARMED;
-	    		postData(lastWeight, weight, alarmState);
-	    	}
-
-	    	lastWeight = weight;
-	    }
+	    Phant phant(phantHost, publicKey, privateKey);
 
 	    if(firstRun){
-	    	alarmState = IDLE;
-	    	postData(lastWeight, weight, alarmState);
-	    	firstRun = false;
+			phant.add("old_weight", oldWeight);
+			phant.add("new_weight", newWeight);
+			phant.add("alarm_state", "IDLE");
+
+			webClient->postData(phant);
+
+			firstRun = false;
+		}
+	    else if(abs(newWeight - oldWeight) > WEIGHT_DIFF_THRESHOLD){
+
+	    	phant.add("old_weight", oldWeight);
+	    	phant.add("new_weight", newWeight);
+
+	    	if(newWeight < oldWeight){
+	    		phant.add("alarm_state", "ALARM");
+
+	    	}else{
+	    		phant.add("alarm_state", "ARMED");
+	    	}
+	    	webClient->postData(phant);
+
+	    	oldWeight = newWeight;
 	    }
 	 }
 }
-
