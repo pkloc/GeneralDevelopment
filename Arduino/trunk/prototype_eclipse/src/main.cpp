@@ -5,6 +5,7 @@
 #include <Phant.h>
 #include <SPI.h>
 #include <WebClient.h>
+#include <WeightSensor.h>
 
 ////////////////////
 // WiFi Constants //
@@ -15,7 +16,7 @@ uint8_t ap_security = WLAN_SEC_WPA2; // Security of network
 uint16_t timeout = 30000;             // Milliseconds
 
 WebClient *webClient = NULL;
-
+WeightSensor *weightSensor = NULL;
 
 /////////////////
 // Phant Stuff //
@@ -26,14 +27,10 @@ const char publicKey[] = "7JOaE6DMLwt0m6nAndKx";
 const char privateKey[] = "mzZ2N5dbJXiy5EkDkaAm";
 
 //////////////////
-
 const float WEIGHT_DIFF_THRESHOLD = 5.0;
 float oldWeight = 0.0;
 
-String inputString = "";         // a string to hold incoming data
-boolean stringComplete = false;  // whether the string is complete
 boolean firstRun = true;
-
 
 void setupWiFi()
 {
@@ -43,10 +40,10 @@ void setupWiFi()
 	Serial.println(ap_ssid);
 
 	if(webClient->connectToWifi(ap_ssid, ap_security, ap_password, timeout)){
-		String *ipAddress = new String();
-		if(webClient->getIpAddress(*ipAddress)){
+		String ipAddress = "";
+		if(webClient->getIpAddress(ipAddress)){
 			Serial.print("Got IP: ");
-			Serial.println(*ipAddress);
+			Serial.println(ipAddress);
 		}
 		else{
 			Serial.println("Could not get IP address");
@@ -60,55 +57,26 @@ void setupWiFi()
 
 void setup()
 {
-	inputString.reserve(75);
-
 	Serial.begin(9600);
-
 	delay(1000);
 
 	// Set Up WiFi:
 	setupWiFi();
 
-	Serial1.begin(9600);
-	//delay(1000);
-
-}
-
-
-void getSerialData() {
-  while (Serial1.available()) {
-    // get the new byte:
-    char inChar = (char)Serial1.read();
-    // add it to the inputString:
-    inputString += inChar;
-    // if the incoming character is a newline, set a flag
-    // so the main loop can do something about it:
-    if (inChar == '\n') {
-
-    	int subStringStart = inputString.lastIndexOf(':') + 3;
-    	int subStringEnd = inputString.length() - 5;
-    	inputString = inputString.substring(subStringStart, subStringEnd);
-
-    	stringComplete = true;
-    }
-  }
+	// Set up the Weight Sensor reader
+	weightSensor = new WeightSensor();
 }
 
 void loop()
 {
-	getSerialData();
+	if(weightSensor->weightAvailable()){
+		float newWeight = weightSensor->getWeight();
 
-	if (stringComplete) {
+		Serial.println(newWeight);
 
-		Serial.println(inputString);
+		Phant phant(phantHost, publicKey, privateKey);
 
-		float newWeight = inputString.toFloat();
-	    inputString = "";
-	    stringComplete = false;
-
-	    Phant phant(phantHost, publicKey, privateKey);
-
-	    if(firstRun){
+		if(firstRun){
 			phant.add("old_weight", oldWeight);
 			phant.add("new_weight", newWeight);
 			phant.add("alarm_state", "IDLE");
@@ -117,20 +85,21 @@ void loop()
 
 			firstRun = false;
 		}
-	    else if(abs(newWeight - oldWeight) > WEIGHT_DIFF_THRESHOLD){
+		else if(abs(newWeight - oldWeight) > WEIGHT_DIFF_THRESHOLD){
 
-	    	phant.add("old_weight", oldWeight);
-	    	phant.add("new_weight", newWeight);
+			phant.add("old_weight", oldWeight);
+			phant.add("new_weight", newWeight);
 
-	    	if(newWeight < oldWeight){
-	    		phant.add("alarm_state", "ALARM");
+			if(newWeight < oldWeight){
+				phant.add("alarm_state", "ALARM");
 
-	    	}else{
-	    		phant.add("alarm_state", "ARMED");
-	    	}
-	    	webClient->postData(phant);
+			}else{
+				phant.add("alarm_state", "ARMED");
+			}
+			webClient->postData(phant);
 
-	    	oldWeight = newWeight;
-	    }
-	 }
+			oldWeight = newWeight;
+		}
+
+	}
 }
