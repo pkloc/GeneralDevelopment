@@ -6,16 +6,15 @@
  */
 #include "WebClient.h"
 
-WebClient::WebClient(const char *dataHost, uint16_t port, const char *publicKey, const char *privateKey){
-
+WebClient::WebClient(const char *dataHost, uint16_t port, const char *publicKey, const char *privateKey) :
+	_dataHost(dataHost),
+	_port(port),
+	_publicKey(publicKey),
+	_privateKey(privateKey)
+{
 	_wifi = new SFE_CC3000(INTERRUPT_PIN, ENABLE_PIN, CHIP_SELECT_PIN);
 
 	_webClient = new SFE_CC3000_Client(*_wifi);
-
-	_dataHost = dataHost;
-	_port = port;
-	_publicKey = publicKey;
-	_privateKey = privateKey;
 }
 
 bool
@@ -58,9 +57,6 @@ WebClient::postData(Phant &phant){
 		Serial.println(F("Error: TCP connect failed"));
 	}
 
-	Serial.println("TCP connect succeeded");
-	Serial.println(phant.queryString());
-
 	_webClient->print("GET /input/");
 	_webClient->print(_publicKey);
 	_webClient->print("?private_key=");
@@ -74,13 +70,11 @@ WebClient::postData(Phant &phant){
 
 	while(_webClient->connected()){
 		if ( _webClient->available() )
-		    {
-		      char c = _webClient->read();
-		      Serial.print(c);
-		    }
+		{
+		  char c = _webClient->read();
+		  Serial.print(c);
+		}
 	}
-
-	Serial.println("And Done!");
 }
 
 
