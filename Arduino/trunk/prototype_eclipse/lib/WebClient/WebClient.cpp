@@ -59,6 +59,7 @@ WebClient::postData(Phant &phant){
 	}
 
 	Serial.println("TCP connect succeeded");
+	Serial.println(phant.queryString());
 
 	_webClient->print("GET /input/");
 	_webClient->print(_publicKey);
@@ -71,9 +72,15 @@ WebClient::postData(Phant &phant){
 	_webClient->println("Connection: close");
 	_webClient->println();
 
-	Serial.println("And Done!");
+	while(_webClient->connected()){
+		if ( _webClient->available() )
+		    {
+		      char c = _webClient->read();
+		      Serial.print(c);
+		    }
+	}
 
-	delay(2000);
+	Serial.println("And Done!");
 }
 
 

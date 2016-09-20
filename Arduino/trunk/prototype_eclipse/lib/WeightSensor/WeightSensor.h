@@ -8,7 +8,24 @@
 #ifndef WEIGHTSENSOR_H_
 #define WEIGHTSENSOR_H_
 
+#include <WString.h>
 
+class WeightSensor{
+public:
+	WeightSensor();
+	~WeightSensor();
+
+	float getWeight();
+
+	bool weightAvailable();
+
+private:
+
+	void getSerialData();
+
+	String _incomingData = "";
+	bool _dataComplete = false;
+};
 
 
 
