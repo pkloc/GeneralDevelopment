@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidProto</string>
+    <string name="title_activity_led_control">ledControl</string>
+    <string name="settings">Item</string>
+</resources>
