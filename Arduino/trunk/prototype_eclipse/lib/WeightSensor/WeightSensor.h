@@ -23,6 +23,8 @@ private:
 
 	void getSerialData();
 
+	void parseSerialData();
+
 	String _incomingData = "";
 	bool _dataComplete = false;
 };
