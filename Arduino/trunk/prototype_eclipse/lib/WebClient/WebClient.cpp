@@ -29,24 +29,19 @@ WebClient::getIpAddress(String &ipAddress){
 
 	ConnectionInfo connection_info;
 
-		String myString;
+	String myString;
 
-		if ( !_wifi->getConnectionInfo(connection_info) )
-		{
-			return false;
-		}
-		else
-		{
-			for (int i = 0; i < IP_ADDRESS_LENGTH; i++)
-			{
-				ipAddress.concat(connection_info.ip_address[i]);
-				if ( i < IP_ADDRESS_LENGTH - 1 )
-				{
-					ipAddress.concat(".");
-				}
+	if (!_wifi->getConnectionInfo(connection_info)) {
+		return false;
+	} else {
+		for (int i = 0; i < IP_ADDRESS_LENGTH; i++) {
+			ipAddress.concat(connection_info.ip_address[i]);
+			if (i < IP_ADDRESS_LENGTH - 1) {
+				ipAddress.concat(".");
 			}
 		}
-		return true;
+	}
+	return true;
 }
 
 void
@@ -69,6 +64,7 @@ WebClient::postData(Phant &phant){
 	_webClient->println();
 
 	while(_webClient->connected()){
+
 		if ( _webClient->available() )
 		{
 		  char c = _webClient->read();

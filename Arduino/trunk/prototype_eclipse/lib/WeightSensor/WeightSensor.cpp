@@ -44,11 +44,17 @@ WeightSensor::getSerialData(){
 		_incomingData += inChar;
 
 		if (inChar == '\n') {
-			int subStringStart = _incomingData.lastIndexOf(':') + 3;
-			int subStringEnd = _incomingData.length() - 5;
-			_incomingData = _incomingData.substring(subStringStart, subStringEnd);
 
+			parseSerialData();
 			_dataComplete = true;
+
 		}
 	}
+}
+
+void WeightSensor::parseSerialData() {
+
+	int subStringStart = _incomingData.lastIndexOf(':') + 3;
+	int subStringEnd = _incomingData.length() - 5;
+	_incomingData = _incomingData.substring(subStringStart, subStringEnd);
 }
