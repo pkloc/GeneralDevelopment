@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>392dad00-b09b-4984-a74d-cc1081b6ceb9</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>pythonGuiTest.py</StartupFile>
+    <StartupFile>MainApplication.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MainApplication.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="pythonGuiTest.py" />
     <Compile Include="serialTest.py">
       <SubType>Code</SubType>
