@@ -15,7 +15,7 @@ public class PlayerNameProviderImpl implements PlayerNameProvider {
 		
 		BufferedReader reader = null;
 		try{
-			reader = new BufferedReader( new FileReader( "playerNames.txt" ) );
+			reader = new BufferedReader( new FileReader( "src/main/resources/playerNames.txt" ) );
 			String playerName = null;
 			
 			while ((playerName = reader.readLine()) != null) {
